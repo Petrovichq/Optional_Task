@@ -62,6 +62,22 @@ public class OptionalTask1 {
                 simplestNumber = s;
             }
         }
-        System.out.println(simplestNumber);  //4
+        System.out.println("The simplest number is: " + simplestNumber);  //4
+
+        int onlyEvenDigitsInNumber = 0;
+        int equalEvenAndUneven = 0;
+        for (String s:inputArray) {
+            int evenDigits = 0;
+            int unevenDigits = 0;
+            for (int i = 0; i <s.length() ; i++) {
+                if (s.charAt(i) == '1' || s.charAt(i) == '3' || s.charAt(i) == '5' || s.charAt(i) == '7' || s.charAt(i) == '9'){
+                    unevenDigits++;
+                }else evenDigits++;
+            }
+            if (unevenDigits == 0){onlyEvenDigitsInNumber++;}
+            if (evenDigits == unevenDigits){equalEvenAndUneven++;}
+        }
+        System.out.println("Amount of numbers with only even digits is: " + onlyEvenDigitsInNumber);
+        System.out.println("Amount of numbers with equal even and uneven digits is: " + equalEvenAndUneven);
     }
 }
