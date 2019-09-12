@@ -43,11 +43,25 @@ public class OptionalTask1 {
             sum += s.length();
         }
         int average = sum / n;
-        System.out.print("Number length less than average:");
+        System.out.print("Number with length less than average:");
         for (String s:inputArray) {
             if (s.length() < average) System.out.print(" " + s + "(" + s.length() + " symbol(s))");  //3
         }
+        System.out.println();
 
-
+        String simplestNumber = null;
+        int minAmountSymbols = (int) inputArray[0].chars().distinct().count();
+        for (String s: inputArray) {
+            if (s.contains("-")){
+                if ((s.chars().distinct().count() - 1) < minAmountSymbols){
+                    minAmountSymbols = (int) (s.chars().distinct().count() - 1) ;
+                    simplestNumber = s;
+                }
+            }else if(s.chars().distinct().count() < minAmountSymbols){
+                minAmountSymbols = (int) s.chars().distinct().count();
+                simplestNumber = s;
+            }
+        }
+        System.out.println(simplestNumber);  //4
     }
 }
